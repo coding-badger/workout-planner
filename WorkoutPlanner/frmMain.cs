@@ -20,6 +20,9 @@ namespace WorkoutPlanner
 {
     public partial class frmMain : Form
     {
+        List<string> muscleFileNames = new List<string> {"data/abs.txt", "data/back.txt", "data/biceps.txt", "data/chest.txt", "data/forearms.txt", "data/glutes.txt", "data/legs.txt", "data/shoulders.txt", "data/triceps.txt"};
+        Dictionary<string, List<string>> dictMuscleGroups;
+
         List<Exercise> listExercise = new List<Exercise>();
         private void GetExerciseData(Exercise exercise)
         {
@@ -29,11 +32,39 @@ namespace WorkoutPlanner
             exercise.reps = int.Parse(lbReps.SelectedItem.ToString());
         }
 
-        private void ReadFile(string path)
+        private void ReadList(List<string> muscleGroup)
         {
-            foreach (string line in File.ReadLines($@"C:\Users\Jared\source\repos\WorkoutPlanner\WorkoutPlanner\bin\Debug\{path}.txt", Encoding.UTF8))
+            foreach (string exercise in muscleGroup)
             {
-                lbExercises.Items.Add(line);
+                lbExercises.Items.Add(exercise);
+            }
+        }
+
+        public Dictionary<string, List<string>> PopulateExerciseLists(List<string> fileNames)
+        {
+            var dictMuscleGroups = new Dictionary<string, List<string>>();
+
+            foreach (var fileName in fileNames)
+            {
+                var fileContent = new List<string>();
+                var fileLines = File.ReadAllLines(fileName);
+
+                foreach (var line in fileLines)
+                {
+                    fileContent.Add(line);
+                }
+
+                dictMuscleGroups[fileName] = fileContent;
+            }
+
+            return dictMuscleGroups;
+        }
+
+        private void SaveFile(List<string> muscleGroup)
+        {
+            foreach (string exercise in muscleGroup)
+            {
+                lbExercises.Items.Add(exercise);
             }
         }
 
@@ -82,7 +113,8 @@ namespace WorkoutPlanner
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            ReadFile("chest");
+            dictMuscleGroups = PopulateExerciseLists(muscleFileNames);
+            ReadList(dictMuscleGroups["data/chest.txt"]);
             dgvExercises.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
 
@@ -91,47 +123,47 @@ namespace WorkoutPlanner
             if (rbChest.Checked)
             {
                 lbExercises.Items.Clear();
-                ReadFile("chest");
+                ReadList(dictMuscleGroups["data/chest.txt"]);
             }
             else if (rbShoulders.Checked)
             {
                 lbExercises.Items.Clear();
-                ReadFile("shoulders");
+                ReadList(dictMuscleGroups["data/shoulders.txt"]);
             }
             else if (rbBiceps.Checked)
             {
                 lbExercises.Items.Clear();
-                ReadFile("biceps");
+                ReadList(dictMuscleGroups["data/biceps.txt"]);
             }
             else if (rbTriceps.Checked)
             {
                 lbExercises.Items.Clear();
-                ReadFile("triceps");
+                ReadList(dictMuscleGroups["data/triceps.txt"]);
             }
             else if (rbForearms.Checked)
             {
                 lbExercises.Items.Clear();
-                ReadFile("forearms");
+                ReadList(dictMuscleGroups["data/forearms.txt"]);
             }
             else if (rbLegs.Checked)
             {
                 lbExercises.Items.Clear();
-                ReadFile("legs");
+                ReadList(dictMuscleGroups["data/legs.txt"]);
             }
             else if (rbAbs.Checked)
             {
                 lbExercises.Items.Clear();
-                ReadFile("abs");
+                ReadList(dictMuscleGroups["data/abs.txt"]);
             }
             else if (rbGlutes.Checked)
             {
                 lbExercises.Items.Clear();
-                ReadFile("glutes");
+                ReadList(dictMuscleGroups["data/glutes.txt"]);
             }
             else if (rbBack.Checked)
             {
                 lbExercises.Items.Clear();
-                ReadFile("back");
+                ReadList(dictMuscleGroups["data/back.txt"]);
             }
         }
 
@@ -203,7 +235,7 @@ namespace WorkoutPlanner
 
         private void btnNewExercise_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Current directory: {0}", Application.StartupPath);
         }
     }
 }

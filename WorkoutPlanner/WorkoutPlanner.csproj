@@ -66,6 +66,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -79,6 +80,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\abs.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\back.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\biceps.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\chest.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\forearms.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\glutes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\legs.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\shoulders.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\triceps.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
