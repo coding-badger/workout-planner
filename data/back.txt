@@ -1,0 +1,43 @@
+Back Extension
+Barbell Row
+Barbell Shrug
+Block Snatch
+Cable Close Grip Seated Row
+Cable Wide Grip Seated Row
+Chin-Up
+Clean
+Clean and Jerk
+Deadlift
+Deficit Deadlift
+Dumbbell Deadlift
+Dumbbell Row
+Dumbbell Shrug
+Floor Back Extension
+Good Morning
+Hang Clean
+Hang Power Clean
+Hang Power Snatch
+Hang Snatch
+Inverted Row
+Inverted Row with Underhand Grip
+Kettlebell Swing
+Lat Pulldown With Pronated Grip
+Lat Pulldown With Supinated Grip
+One-Handed Cable Row
+One-Handed Lat Pulldown
+Pause Deadlift
+Pendlay Row
+Power Clean
+Power Snatch
+Pull-Up
+Rack Pull
+Seal Row
+Seated Machine Row
+Snatch
+Snatch Grip Deadlift
+Stiff-Legged Deadlift
+Straight Arm Lat Pulldown
+Sumo Deadlift
+T-Bar Row
+Trap Bar Deadlift With High Handles
+Trap Bar Deadlift With Low Handles
